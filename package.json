@@ -1,6 +1,6 @@
 {
   "name": "bmp280",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple module for reading data from a Bosch BMP280, based on BMP085 from Ricco Førgaard",
   "main": "bmp085.js",
   "author": "Angel Imaz",

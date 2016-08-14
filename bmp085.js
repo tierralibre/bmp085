@@ -3,7 +3,7 @@ var Wire = require('i2c'),
     _ = require('underscore'),
     debug,
     defaultOptions = {
-        'debug' : false,
+        'debug' : true,
         'address' : 0x77,
         'device' : '/dev/i2c-1',
         'mode' : 1
@@ -217,7 +217,11 @@ BMP085.prototype.convertTemperature = function (raw) {
 
     calibrationData.b5 = x1 + x2;
     // 
-    console.log("calibrationData.b5: " + calibrationData.b5 );
+    if (debug) {
+        console.log("calibrationData.b5: " + calibrationData.b5 );
+        var c_temp =  ( x1 + x2 ) / 1024;
+        console.log("temp c: " + c_temp );
+    }
     temperature = ((calibrationData.b5 + 8) >> 4) / 10.0;
     return temperature;
 };
