@@ -216,6 +216,8 @@ BMP085.prototype.convertTemperature = function (raw) {
         temperature;
 
     calibrationData.b5 = x1 + x2;
+    // 
+    console.log("calibrationData.b5: " + calibrationData.b5 );
     temperature = ((calibrationData.b5 + 8) >> 4) / 10.0;
     return temperature;
 };
